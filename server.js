@@ -1,0 +1,10 @@
+const express = require('express');
+const app = express();
+
+require('./server/config/mongoose.config');
+app.use(express.json());
+
+const AllJokesRoutes = require('./server/routes/jokes.routes');
+AllJokesRoutes(app);
+
+app.listen(8000, () => console.log('listening on port 8000'));
